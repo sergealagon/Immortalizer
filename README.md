@@ -2,7 +2,8 @@
  
 Keep your apps running in the foreground indefinitely, even if they are in the background! 
 
-![Uploading Presentation.png…]()
+![Presentation](https://github.com/user-attachments/assets/df20fac5-df56-4707-a70e-8aa1fd8ec513)
+
 
 ### Features
 - Enable/disable app backgrounding (foregrounding) through 3D touch context menu
