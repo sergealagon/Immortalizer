@@ -17,7 +17,7 @@ Keep your apps running in the foreground indefinitely, even if they are in the b
  <img src="https://docs.havoc.app/img/badges/coming_square.png" alt="drawing" style="width:200px;"/>
 
 ## License
-     Copyright (C) 2024  Serge Alagon
+    Copyright (C) 2024  Serge Alagon
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
