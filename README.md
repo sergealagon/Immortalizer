@@ -2,6 +2,8 @@
  
 Keep your apps running in the foreground indefinitely, even if they are in the background! 
 
+![Uploading Presentation.png…]()
+
 ### Features
 - Enable/disable app backgrounding (foregrounding) through 3D touch context menu
 - Works even if the screen is off / device is locked, so no worries about battery drain
