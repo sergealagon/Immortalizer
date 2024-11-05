@@ -30,7 +30,7 @@
 }
 
 -(void)sourceCode {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.github.com"] withCompletionHandler:nil];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/sergealagon/Immortalizer"] withCompletionHandler:nil];
 }
 
 -(void)supportPage {
