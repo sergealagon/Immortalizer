@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Immortalizer Settings</string>
+			<key>footerText</key>
+			<string>No respring needed :)</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.sergy.immortalizerprefs</string>
+			<key>key</key>
+			<string>isEnabled</string>
+			<key>label</key>
+			<string>Enable</string>
+			<key>PostNotification</key>
+			<string>com.sergy.immortalizer.preferenceschanged</string>
+
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Notifications</string>
+			<key>footerText</key>
+			<string>Some apps don't show notifications when it's in the foreground. This option will allow the notifications to show when Immortalizer is enabled on a particular app.</string>
+		</dict>
+		<dict>	
+			<key>cell</key>
+			<string>PSLinkListCell</string>
+			<key>label</key>
+			<string>Enable Foreground Notification Per App</string>
+			<key>detail</key>
+			<string>ATLApplicationListMultiSelectionController</string>
+			<key>key</key>
+			<string>selectedApplications</string> 
+			<key>defaults</key>
+			<string>com.sergy.immortalizer.applist</string>
+			<key>sections</key>
+			<array>
+				<dict>
+					<key>sectionType</key>
+					<string>User</string>
+				</dict>
+				<dict>
+					<key>sectionType</key>
+					<string>System</string>
+				</dict>
+			</array>
+			<key>isController</key>
+			<true/>
+			<key>overridePrincipalClass</key>
+			<true/>
+			<key>useSearchBar</key>
+			<true/>
+			<key>PostNotification</key>
+			<string>com.sergy.immortalizer.preferenceschanged.notifs</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Indicator</string>
+			<key>footerText</key>
+			<string>Immortalizer has 2 indicators:&#10;⧖ - when an app is both immortalized and is alive&#10;🟡 - when app is immortalized but got terminated.&#10;Enabling this overrides SpringBoard's label accessory.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.sergy.immortalizer.indicator</string>
+			<key>key</key>
+			<string>isIndicatorEnabled</string>
+			<key>label</key>
+			<string>Enable Indicator</string>
+			<key>PostNotification</key>
+			<string>com.sergy.immortalizer.preferenceschanged.indicator</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Toast</string>
+			<key>footerText</key>
+			<string>You can enable/disable toasts that shows the state of the app&#10;Immortalized - when app is immortalized&#10;At rest - when you disable Immortalizer on the app&#10;Terminated - when app gets terminated while Immortalizer is still enabled.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.sergy.immortalizer.toast</string>
+			<key>key</key>
+			<string>isToastEnabled</string>
+			<key>label</key>
+			<string>Enable Toast Message</string>
+			<key>PostNotification</key>
+			<string>com.sergy.immortalizer.preferenceschanged.toast</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Developer</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>supportPage</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Love my tweak? I love coffee :D</string>
+			<key>icon</key>
+			<string>coffee.png</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>sourceCode</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Source code :)</string>
+			<key>icon</key>
+			<string>github.png</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>socialPage</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Follow me on Twitter!</string>
+			<key>icon</key>
+			<string>twitter.png</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>© 2024 Serge Alagon (sergy)</string>
+		</dict>
+
+	</array>
+	<key>title</key>
+	<string>Immortalizer</string>
+</dict>
+</plist>

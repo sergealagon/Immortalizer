@@ -1,0 +1,9 @@
+Package: com.sergy.immortalizer
+Name: Immortalizer
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: Foreground your tweaks even if they are in the background!
+Maintainer: sergy
+Author: sergy
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), preferenceloader, com.opa334.altlist
