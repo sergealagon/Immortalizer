@@ -4,6 +4,7 @@ Keep your apps running in the foreground indefinitely, even if they are in the b
 
 ![Presentation](https://github.com/user-attachments/assets/df20fac5-df56-4707-a70e-8aa1fd8ec513)
 
+This is a jailbreak tweak that allows you to trick apps into thinking they're still in the foreground even if they are in the background.
 
 ### Features
 - Enable/disable app backgrounding (foregrounding) through 3D touch context menu
