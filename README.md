@@ -20,6 +20,9 @@ This is a jailbreak tweak that allows you to trick apps into thinking they're st
 
  <a href="https://havoc.app/package/immortalizer"><img src="https://docs.havoc.app/img/badges/available_square.png" alt="drawing" style="width:200px;"/></a>
 
+## Changelogs
+### v1.0.1
+- Fixed a bug where rotations don't work on immortalized apps
 
 ## License
     Copyright (C) 2024  Serge Alagon
