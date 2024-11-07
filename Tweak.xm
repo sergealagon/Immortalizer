@@ -27,7 +27,7 @@ static BOOL isFolderTransitioning = false;
 static BOOL isIndicatorEnabled;
 static BOOL isToastEnabled;
 
-static void preferencesChanged() {
+static void preferencesImmortalizerChanged() {
     Immortalizer *immortalizer = [Immortalizer sharedInstance];
     NSArray *immortalBundleIDs = [[NSUserDefaults standardUserDefaults] arrayForKey:@"ImmortalForegroundBundleIDs"];
     NSUserDefaults *const prefs = [[NSUserDefaults alloc] initWithSuiteName:@"com.sergy.immortalizerprefs"];
@@ -138,12 +138,12 @@ static void prefsToastChanged() {
             if (isToastEnabled)
                 [immortalizer showToastWithTitle:[immortalizer getAppNameForBundle:bundleID] subtitle:@"Immortalized" icon:[UIImage systemImageNamed:@"checkmark.circle.fill"] autoHide:3.0];
 			[[%c(FBSSystemService) sharedService] openApplication:bundleID options:nil withResult:nil];
-			dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+			dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             	[immortalBundleIDs addObject:bundleID];
 			 });
         }
         
-		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{ 
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{ 
         	[[NSUserDefaults standardUserDefaults] setObject:immortalBundleIDs forKey:@"ImmortalForegroundBundleIDs"];
         	[[NSUserDefaults standardUserDefaults] synchronize];
             [immortalizer updateAccessoryForBundle:bundleID];
@@ -163,9 +163,12 @@ static void prefsToastChanged() {
         Immortalizer *immortalizer = [Immortalizer sharedInstance];
 
         if ([immortalBundleIDs containsObject:bundleIdentifier]) {
-            [immortalizer updateAccessoryForBundle:bundleIdentifier];
-            return;
-        }
+                [immortalizer updateAccessoryForBundle:bundleIdentifier];
+            if (arg2 == nil) 
+                return;
+            else 
+                [arg1 setValue:@YES forKey:@"foreground"];
+        } 
     }
     %orig; 
 }
@@ -222,11 +225,11 @@ static void prefsToastChanged() {
 %end
 
 %ctor {
-    preferencesChanged();
+    preferencesImmortalizerChanged();
     prefsNotifsChanged();
     prefsIndicatorChanged();
     prefsToastChanged();
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)preferencesChanged, CFSTR("com.sergy.immortalizer.preferenceschanged"), NULL, CFNotificationSuspensionBehaviorDeliverImmediately);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)preferencesImmortalizerChanged, CFSTR("com.sergy.immortalizer.preferenceschanged"), NULL, CFNotificationSuspensionBehaviorDeliverImmediately);
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)prefsNotifsChanged, CFSTR("com.sergy.immortalizer.preferenceschanged.notifs"), NULL, CFNotificationSuspensionBehaviorDeliverImmediately);
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)prefsIndicatorChanged, CFSTR("com.sergy.immortalizer.preferenceschanged.indicator"), NULL, CFNotificationSuspensionBehaviorDeliverImmediately);
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)prefsToastChanged, CFSTR("com.sergy.immortalizer.preferenceschanged.toast"), NULL, CFNotificationSuspensionBehaviorDeliverImmediately);
