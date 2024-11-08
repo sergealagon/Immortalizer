@@ -24,6 +24,16 @@ This is a jailbreak tweak that allows you to trick apps into thinking they're st
 ### v1.0.1
 - Fixed a bug where rotations don't work on immortalized apps
 
+## Known bugs  (Don't worry I'm working on it)
+- Keyboard doesn't work sometimes when kept opened on an immortalized app
+- Some apps that takes a bit of time to fully open freezes when immortalizer runs before apps can fully load
+
+## Feature requests (I will do my best to work on this once I fixed all bugs within it's core)
+- CC Modules
+- CPU/Timer based immortalization
+- Have an option to have indicator through badges and app switcher
+- Have option to lock them in the app switcher
+
 ## License
     Copyright (C) 2024  Serge Alagon
 
