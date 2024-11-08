@@ -27,7 +27,8 @@ This is a jailbreak tweak that allows you to trick apps into thinking they're st
 ## Known bugs  (Don't worry I'm working on it)
 - Keyboard doesn't work sometimes when kept opened on an immortalized app
 - Some apps that takes a bit of time to fully open freezes when immortalizer runs before apps can fully load
-
+- Some users on iOS 15 reported that the tweak causes their SpringBoard to crash
+  
 ## Feature requests (I will do my best to work on this once I fixed all bugs within its core)
 - CC Modules
 - CPU/Timer based immortalization
