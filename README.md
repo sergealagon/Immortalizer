@@ -28,7 +28,7 @@ This is a jailbreak tweak that allows you to trick apps into thinking they're st
 - Keyboard doesn't work sometimes when kept opened on an immortalized app
 - Some apps that takes a bit of time to fully open freezes when immortalizer runs before apps can fully load
 
-## Feature requests (I will do my best to work on this once I fixed all bugs within it's core)
+## Feature requests (I will do my best to work on this once I fixed all bugs within its core)
 - CC Modules
 - CPU/Timer based immortalization
 - Have an option to have indicator through badges and app switcher
