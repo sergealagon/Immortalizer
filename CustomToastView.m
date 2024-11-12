@@ -20,10 +20,9 @@
 @implementation CustomToastView
 
 -(UIWindow *)getKeyWindow {
-    for (UIWindow *window in [UIApplication sharedApplication].windows) {
-        if (window.isKeyWindow) {
-            return window;
-        }
+    NSArray *windows = [UIApplication sharedApplication].windows;
+    for (UIWindow *window in [windows reverseObjectEnumerator]) {
+        if (window.hidden == NO && window.alpha > 0) return window;
     }
     return nil;
 }
@@ -104,14 +103,6 @@
             [self.hStack.bottomAnchor constraintEqualToAnchor:self.containerView.bottomAnchor]
         ]];
 
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] 
-            initWithTarget:self action:@selector(handleTap:)];
-        [self.containerView addGestureRecognizer:tapGesture];
-
-        UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] 
-            initWithTarget:self action:@selector(handlePan:)];
-        [self.containerView addGestureRecognizer:panGesture];
-
         if (seconds > 0) {
             [self hideAfter:seconds];
         }
@@ -119,51 +110,17 @@
     return self;
 }
 
--(void)handleTap:(UITapGestureRecognizer *)gesture {
-    [self hideWithAnimation];
-}
-
--(void)handlePan:(UIPanGestureRecognizer *)gesture {
-    CGPoint translation = [gesture translationInView:self];
-    CGPoint velocity = [gesture velocityInView:self];
-    
-    switch (gesture.state) {
-        case UIGestureRecognizerStateChanged: {
-            if (translation.y <= 0) {
-                self.transform = CGAffineTransformMakeTranslation(0, translation.y);
-            }
-            break;
-        }
-            
-        case UIGestureRecognizerStateEnded: {
-            if (velocity.y < -500 || translation.y < -self.bounds.size.height / 3) {
-                [self hideWithAnimation];
-            } else {
-                [UIView animateWithDuration:0.2 animations:^{
-                    self.transform = CGAffineTransformIdentity;
-                }];
-            }
-            break;
-        }
-            
-        case UIGestureRecognizerStateCancelled: {
-            [UIView animateWithDuration:0.2 animations:^{
-                self.transform = CGAffineTransformIdentity;
-            }];
-            break;
-        }
-            
-        default:
-            break;
-    }
-}
-
 -(void)presentToast {
     UIWindow *keyWindow = [self getKeyWindow];
     
-    if (!keyWindow) 
-        return;
-    
+    if (!keyWindow) return;
+
+    for (UIView *subview in keyWindow.subviews) {
+        if ([subview isKindOfClass:[CustomToastView class]]) {
+            [(CustomToastView *)subview hideWithAnimation];
+        }
+    }
+
     [keyWindow addSubview:self];
     
     self.translatesAutoresizingMaskIntoConstraints = NO;
@@ -180,50 +137,23 @@
     
     [keyWindow layoutIfNeeded];
     
-    self.transform = CGAffineTransformMakeTranslation(0, -self.bounds.size.height - 30);
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(handleWindowDidChange:)
-                                               name:UIWindowDidBecomeKeyNotification
-                                             object:nil];
+    self.transform = CGAffineTransformMakeTranslation(0, -self.bounds.size.height);
     
     [UIView animateWithDuration:0.3 animations:^{
         self.transform = CGAffineTransformIdentity;
-    } completion:nil];
-}
-
--(void)handleWindowDidChange:(NSNotification *)notification {
-    UIWindow *newKeyWindow = [self getKeyWindow];
-    if (newKeyWindow && self.superview != newKeyWindow) {
-        [self removeFromSuperview];
-        
-        [newKeyWindow addSubview:self];
-        
-        [NSLayoutConstraint activateConstraints:@[
-            [self.centerXAnchor constraintEqualToAnchor:newKeyWindow.centerXAnchor],
-            [self.topAnchor constraintEqualToAnchor:newKeyWindow.topAnchor constant:40],
-            [self.widthAnchor constraintEqualToConstant:newKeyWindow.bounds.size.width - 190],
-            [self.heightAnchor constraintEqualToConstant:70]
-        ]];
-        
-        [newKeyWindow layoutIfNeeded];
-    }
-}
-
--(void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    } completion:^(BOOL finished) {
+    }];
 }
 
 -(void)removeFromSuperview {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super removeFromSuperview];
 }
 
 -(void)hideWithAnimation {
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.2  animations:^{
         self.transform = CGAffineTransformMakeTranslation(0, -self.bounds.size.height - 30);
     } completion:^(BOOL finished) {
-        [self removeFromSuperview];
+        if (finished) [self removeFromSuperview];
     }];
 }
 

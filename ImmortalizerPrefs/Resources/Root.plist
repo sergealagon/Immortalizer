@@ -18,7 +18,7 @@
 			<key>default</key>
 			<true/>
 			<key>defaults</key>
-			<string>com.sergy.immortalizerprefs</string>
+			<string>com.sergy.immortalizer.prefs</string>
 			<key>key</key>
 			<string>isEnabled</string>
 			<key>label</key>
@@ -46,7 +46,7 @@
 			<key>key</key>
 			<string>selectedApplications</string> 
 			<key>defaults</key>
-			<string>com.sergy.immortalizer.applist</string>
+			<string>com.sergy.immortalizer.prefs</string>
 			<key>sections</key>
 			<array>
 				<dict>
@@ -72,9 +72,9 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>Indicator</string>
+			<string>Indicators</string>
 			<key>footerText</key>
-			<string>Immortalizer has 2 indicators:&#10;⧖ - when an app is both immortalized and is alive&#10;🟡 - when app is immortalized but got terminated.&#10;Enabling this overrides SpringBoard's label accessory.</string>
+			<string>Immortalizer has 3 indicators:&#10;⌛ - when an app is both immortalized and is alive&#10;🟡 - when app is immortalized but got terminated.&#10;Enabling this overrides SpringBoard's label accessory.&#10;🔒 - This indicates that you locked the app, which prevents you from accidentally closing the app from the app switcher.</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -82,13 +82,27 @@
 			<key>default</key>
 			<true/>
 			<key>defaults</key>
-			<string>com.sergy.immortalizer.indicator</string>
+			<string>com.sergy.immortalizer.prefs</string>
 			<key>key</key>
 			<string>isIndicatorEnabled</string>
 			<key>label</key>
-			<string>Enable Indicator</string>
+			<string>Enable State Indicator</string>
 			<key>PostNotification</key>
 			<string>com.sergy.immortalizer.preferenceschanged.indicator</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.sergy.immortalizer.prefs</string>
+			<key>key</key>
+			<string>isLockIndicatorEnabled</string>
+			<key>label</key>
+			<string>Enable Lock Indicator</string>
+			<key>PostNotification</key>
+			<string>com.sergy.immortalizer.preferenceschanged.lockindicator</string>
 		</dict>
 
 		<dict>
@@ -105,7 +119,7 @@
 			<key>default</key>
 			<true/>
 			<key>defaults</key>
-			<string>com.sergy.immortalizer.toast</string>
+			<string>com.sergy.immortalizer.prefs</string>
 			<key>key</key>
 			<string>isToastEnabled</string>
 			<key>label</key>
@@ -113,6 +127,7 @@
 			<key>PostNotification</key>
 			<string>com.sergy.immortalizer.preferenceschanged.toast</string>
 		</dict>
+
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>

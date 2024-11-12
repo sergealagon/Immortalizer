@@ -15,20 +15,28 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>. 
 */
 
+#if defined __cplusplus
+extern "C" {
+#endif
+CGFloat CCUISliderExpandedContentModuleHeight();
+CGFloat CCUISliderExpandedContentModuleWidth();
+CGFloat CCUIExpandedModuleContinuousCornerRadius();
+CGFloat CCUICompactModuleContinuousCornerRadius();
+CGFloat CCUIDefaultExpandedContentModuleWidth();
+CGFloat CCUIMaximumExpandedContentModuleHeight();
+#if defined __cplusplus
+};
+#endif
+
+#import <notify.h>
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <objc/message.h>
+#import "Headers.h"
+#import "../Immortalizer.h"
+#import "ImmortalizerCC.h"
 
-@interface CustomToastView : UIView
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UILabel *subtitleLabel;
-- (instancetype)initWithTitle:(NSString *)title subtitle:(NSString *)subtitle icon:(UIImage *)icon autoHide:(int)autoHide;
-- (void)presentToast;
-- (UIWindow *)getKeyWindow;
-- (void)hideWithAnimation;
-- (void)hideAfter:(NSTimeInterval)time;
-@end
 
-@interface CustomToastView ()
-@property (nonatomic, strong) UIView *containerView;
-@property (nonatomic, strong) UIStackView *hStack; 
-@property (nonatomic, strong) UIStackView *vStack; 
+@interface ImmortalizerCCUIMenuModuleViewController : CCUIMenuModuleViewController
+@property (nonatomic, weak) ImmortalizerCC* module;
 @end

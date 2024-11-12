@@ -21,9 +21,7 @@
 @interface SBApplication : NSObject
 @property (nonatomic,readonly) SBApplicationProcessState * processState; 
 @property (nonatomic,copy,readonly) NSString * bundleIdentifier;  
--(void)_processWillLaunch:(id)arg1 ;
--(void)_processDidLaunch:(id)arg1 ;
--(void)_setInternalProcessState:(id)arg1 ;
+@property (nonatomic,copy,readonly) NSString * displayName; 
 @end
 
 @interface SBApplicationController : NSObject
@@ -77,6 +75,7 @@
 - (NSString*)applicationBundleIdentifier; //only on 14
 - (NSString*)applicationBundleIdentifierForShortcuts;
 -(void)_updateLabelAccessoryView;
+@property (nonatomic,readonly) CGRect frame; 
 @end
 
 @interface  LabelImageParameters : SBIconLabelImageParameters
@@ -90,6 +89,13 @@
 @property (copy, readwrite, nonatomic) NSString *text;
 @end
 
+@interface SBSApplicationShortcutIcon : NSObject
+@end
+
+@interface SBSApplicationShortcutCustomImageIcon : SBSApplicationShortcutIcon
+- (id)initWithImageData:(id)arg1 dataType:(long long)arg2 isTemplate:(bool)arg3;
+@end
+
 @interface SBSApplicationShortcutItem : NSObject
 @property (nonatomic, copy) NSString* type;
 @property (nonatomic, copy) NSString* localizedTitle;
@@ -97,15 +103,69 @@
 @property (nonatomic, copy) NSDictionary* userInfo;
 @property (assign, nonatomic) NSUInteger activationMode;
 @property (nonatomic, copy) NSString* bundleIdentifierToLaunch;
+@property (nonatomic,copy) SBSApplicationShortcutIcon *icon;
 @end
+
+@interface RBSProcessIdentity : NSObject
+@property (nonatomic,copy,readonly) NSString * embeddedApplicationIdentifier; 
+@end
+
+@class FBSSceneParameters, UIMutableApplicationSceneSettings;
 
 @interface FBProcess : NSObject
 @property (nonatomic,copy,readonly) NSString * bundleIdentifier; 
+@property (nonatomic,readonly) RBSProcessIdentity * identity; 
+@end
+
+@interface BSSettings : NSObject
+-(void)_applyToSettings:(id)arg1;
+-(void)_removeAllSettings;
+@end
+
+@interface FBSSceneSettings : NSObject {
+    BSSettings* _otherSettings;
+}
+
+@property (getter=isBackgrounded,nonatomic,readonly) BOOL backgrounded; 
+@property (getter=isForeground,nonatomic,readonly) BOOL foreground; 
+
+@end
+
+@interface FBSceneWorkspace : NSObject {
+    NSMutableDictionary* _allScenesByID;
+}
+@end
+
+@interface FBSceneManager : NSObject {
+	FBSceneWorkspace* _workspace;
+}
++(id)sharedInstance;
++(id)keyboardScene;
++(void)_clearKeyboardScene;
++(void)setKeyboardScene:(id)arg1 ;
+@end
+
+@interface FBSSceneSpecification : NSObject
++ (instancetype)specification;
+@end
+
+@interface FBSSceneParameters : NSObject
+@property(nonatomic, copy) UIMutableApplicationSceneSettings *settings;
++ (instancetype)parametersForSpecification:(FBSSceneSpecification *)spec;
+@end
+
+@interface FBSSceneDefinition : NSObject
+@property (nonatomic,copy) FBSSceneSpecification * specification;   
+@end
+
+@interface FBSSceneClientSettings : NSObject
+@end
+
+@interface FBSceneClientHandle : NSObject
 @end
 
 @interface FBScene : NSObject 
 @property (nonatomic,readonly) FBProcess * clientProcess;   
-@property (nonatomic,copy,readonly) NSString * identifier;
 @end
 
 @interface FBSSystemService : NSObject
@@ -118,3 +178,26 @@
 -(void)_didChangeApplicationState:(unsigned)arg1 forBundleIdentifier:(id)arg2;
 @end
 
+@interface SpringBoard : UIApplication
+-(id)_accessibilityFrontMostApplication;
+@end
+
+@interface SBAppLayout : NSObject {
+    NSDictionary* _rolesToLayoutItemsMap; //iOS 15 below
+}
+@property (nonatomic,readonly) NSDictionary * itemsToLayoutAttributesMap; 
+@end
+
+@interface SBFluidSwitcherItemContainer
+@property (nonatomic,retain) SBAppLayout * appLayout; 
+-(void)setKillable:(BOOL)arg1;
+@end
+
+@interface SBDisplayItem : NSObject
+@property (nonatomic,copy,readonly) NSString * bundleIdentifier; 
+@end
+
+@interface UIApplication ()
+-(void)openURL:(id)arg1 withCompletionHandler:(id)arg2 ;
+-(BOOL)_openURL:(id)arg1 ;
+@end

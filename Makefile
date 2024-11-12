@@ -7,10 +7,11 @@ TWEAK_NAME = Immortalizer
 
 Immortalizer_FILES = Tweak.xm Immortalizer.m CustomToastView.m 
 Immortalizer_FRAMEWORKS = UIKit CoreGraphics
-Immortalizer_PRIVATE_FRAMEWORKS = UIKitCore 
+Immortalizer_PRIVATE_FRAMEWORKS = UIKitCore FrontBoardServices BackBoardServices FrontBoard
 Immortalizer_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 
 SUBPROJECTS += ImmortalizerPrefs
+SUBPROJECTS += ImmortalizerCC
 include $(THEOS_MAKE_PATH)/aggregate.mk
