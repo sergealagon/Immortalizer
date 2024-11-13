@@ -28,6 +28,8 @@ static BOOL isIndicatorEnabled;
 static BOOL isToastEnabled;
 static BOOL isLockIndicatorEnabled;
 
+%group init
+
 %hook SpringBoard
 - (void)frontDisplayDidChange:(id)arg1 {
     %orig;
@@ -141,7 +143,6 @@ static BOOL isLockIndicatorEnabled;
     }
 }
 %end
-
 
 %hook FBScene
 -(void)updateSettings:(id)arg1 withTransitionContext:(id)arg2 completion:(id)arg3{
@@ -270,6 +271,8 @@ static BOOL isLockIndicatorEnabled;
 }
 %end
 
+%end
+
 static void prefsLockIndicatorChanged() {
     Immortalizer *immortalizer = [Immortalizer sharedInstance];
     NSArray *lockedBundleIDs = [[NSUserDefaults standardUserDefaults] arrayForKey:@"LockedBundleIDs"]; 
@@ -290,15 +293,15 @@ static void immortalizerPreferencesChanged() {
 }
 
 static void prefsNotifsChanged() {
-    Immortalizer *immortalizer = [Immortalizer sharedInstance];
-    NSArray *immortalBundleIDs = [[NSUserDefaults standardUserDefaults] arrayForKey:@"ImmortalForegroundBundleIDs"];
-    for (NSString * immortalApp in immortalBundleIDs) {
-        if ([immortalizer isNotificationEnabledForBundleIdentifier:immortalApp]) {
-            [[%c(UNSUserNotificationServer) sharedInstance] _didChangeApplicationState:4 forBundleIdentifier:immortalApp];
-        } else {
-            [[%c(UNSUserNotificationServer) sharedInstance] _didChangeApplicationState:8 forBundleIdentifier:immortalApp];
+        Immortalizer *immortalizer = [Immortalizer sharedInstance];
+        NSArray *immortalBundleIDs = [[NSUserDefaults standardUserDefaults] arrayForKey:@"ImmortalForegroundBundleIDs"];
+        for (NSString * immortalApp in immortalBundleIDs) {
+            if ([immortalizer isNotificationEnabledForBundleIdentifier:immortalApp]) {
+                [[%c(UNSUserNotificationServer) sharedInstance] _didChangeApplicationState:4 forBundleIdentifier:immortalApp];
+            } else {
+                [[%c(UNSUserNotificationServer) sharedInstance] _didChangeApplicationState:8 forBundleIdentifier:immortalApp];
+            }
         }
-    }
 }
 
 static void prefsIndicatorChanged() {
@@ -311,15 +314,20 @@ static void prefsToastChanged() {
     isToastEnabled = [toastPrefs objectForKey:@"isToastEnabled"] ? [toastPrefs boolForKey:@"isToastEnabled"] : YES;
 }
 
+static id observer;
 static void loadAllImmortalizerPrefs() {
-    immortalizerPreferencesChanged();
-    prefsNotifsChanged();
-    prefsIndicatorChanged();
-    prefsToastChanged();
-    prefsLockIndicatorChanged();
+    observer = [NSNotificationCenter.defaultCenter addObserverForName:UIApplicationDidFinishLaunchingNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *_) {
+        immortalizerPreferencesChanged();
+        prefsNotifsChanged();
+        prefsIndicatorChanged();
+        prefsToastChanged();
+        prefsLockIndicatorChanged();
+        [NSNotificationCenter.defaultCenter removeObserver: observer];
+    }];
 }
 
 %ctor {
+    %init(init);
     loadAllImmortalizerPrefs();
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)immortalizerPreferencesChanged, CFSTR("com.sergy.immortalizer.preferenceschanged"), NULL, CFNotificationSuspensionBehaviorDeliverImmediately);
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)prefsNotifsChanged, CFSTR("com.sergy.immortalizer.preferenceschanged.notifs"), NULL, CFNotificationSuspensionBehaviorDeliverImmediately);
