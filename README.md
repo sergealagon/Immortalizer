@@ -14,9 +14,10 @@
 
 <a href="https://havoc.app/package/immortalizer" target="_blank"><img src="https://docs.havoc.app/img/badges/available_square.png" alt="drawing" style="width:200px;"/></a>
 
-#### Changelogs:
-##### v1.0.1 - Fixed a bug where rotations don't work
-##### v2.0.0
+## Changelogs:
+### v1.0.1 
+- Fixed a bug where rotations don't work
+### v2.0.0
 - I've changed a lot of things in this version
 - Fixed a bug where some apps are just crashing/freezing
 - Fixed a bug where keyboard doesn't work
@@ -26,7 +27,7 @@
 - Added an option to lock an app in app switcher
 - Added an option to have a lock indicator on both SpringBoard and app switcher
 
-#### Feature requests:
-- Localization (soon)
-- Timer/CPU based immortalization (I'm  still thinking about it)
+## Feature requests: (I'm  still thinking about it)
+- Localization 
+- Timer/CPU based immortalization 
 
