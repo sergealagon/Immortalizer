@@ -10,7 +10,7 @@
 - Has an option to have indicators / toast message depending on the state of the app
 - Allows you to enable notifications on certain apps that doesn't show notifications when in foreground mode
 
-##### Works on iOS 14 - 16.7.7
+### Works on iOS 14 - 16.7.7
 
 <a href="https://havoc.app/package/immortalizer" target="_blank"><img src="https://docs.havoc.app/img/badges/available_square.png" alt="drawing" style="width:200px;"/></a>
 
@@ -26,6 +26,9 @@
 - Added CC Support for quick actions
 - Added an option to lock an app in app switcher
 - Added an option to have a lock indicator on both SpringBoard and app switcher
+##### v2.0.0-1 [minor]
+- Fixed a bug where immortalizer has conflicts with other notification tweaks (Glance)
+- Fixed a bug in CC where Disable button is not reflecting in the UI immediately
 
 ## Feature requests: (I'm  still thinking about it)
 - Localization 
