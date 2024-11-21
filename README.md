@@ -35,8 +35,8 @@
 - Timer/CPU based immortalization 
 - Roothide support
 
-## Known Bug reports (as of Nov 21)
-- Whatsapp issue (I still haven't looked at this tbh since I don't use whatsapp and I'm a bit bus, but will look into it)
+## Known bug reports (as of Nov 21)
+- Whatsapp issue (I still haven't looked at this tbh since I don't use whatsapp and I'm a bit busy, but will look into it)
 - Discord message notification is not letting users to view the specific message after clicked (haven't looked into this as well since only 1 user reported such behavior but will look into it as well)
 
 # License
