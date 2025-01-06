@@ -31,7 +31,7 @@
 - Fixed a bug in CC where Disable button is not reflecting in the UI immediately
 
 ## Feature requests: (I'm  still thinking about it)
-- Localization (will do, kinda busy atm, sorry!)
+- Localization (working on it :D)
 - Timer/CPU based immortalization 
 - Roothide support
 
