@@ -5,7 +5,7 @@ include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = Immortalizer
 
-Immortalizer_FILES = Tweak.xm Immortalizer.m CustomToastView.m 
+Immortalizer_FILES = Tweak.xm Immortalizer.m CustomToastView.m Localizer.m
 Immortalizer_FRAMEWORKS = UIKit CoreGraphics
 Immortalizer_PRIVATE_FRAMEWORKS = UIKitCore FrontBoardServices BackBoardServices FrontBoard
 Immortalizer_CFLAGS = -fobjc-arc

@@ -1,0 +1,22 @@
+"ENABLE_IMMORTAL_FOREGROUND" = "Enable Immortal Foreground";
+"DISABLE_IMMORTAL_FOREGROUND" = "Disable Immortal Foreground";
+"CREEP_ALERT" = "You pervert! Kidding. But Immortalizer doesn't work for camera for recording. I don't know why, but if I got time, I'll try to investigate. I'll still let you Immortalize this app anyway.";
+"AT_REST" = "At rest";
+"TERMINATED" = "Terminated";
+"IMMORTALIZER_SETTINGS" = "Immortalizer Settings";
+"NO_RESPRING_NEEDED" = "No respring needed :)";
+"NOTIFICATIONS" = "Notifications";
+"NOTIFICATIONS_FOOTER" = "Some apps don't show notifications when it's in the foreground. This option will allow the notifications to show when Immortalizer is enabled on a particular app.";
+"ENABLE_IMMORTAL_FOREGROUND_PER_APP" = "Enable Foreground Notification Per App";
+"INDICATORS" = "Indicators";
+"INDICATORS_FOOTER" = "Immortalizer has 3 indicators:\n⌛ - when an app is both immortalized and is alive\n🟡 - when app is immortalized but got terminated.\nEnabling this overrides SpringBoard's label accessory.\n🔒 - This indicates that you locked the app, which prevents you from accidentally closing the app from the app switcher.";
+"ENABLE_STATE_INDICATOR" = "Enable State Indicator";
+"ENABLE_LOCK_INDICATOR" = "Enable Lock Indicator";
+"TOAST" = "Toast";
+"TOAST_FOOTER" = "You can enable/disable toasts that shows the state of the app\nImmortalized - when app is immortalized\nAt rest - when you disable Immortalizer on the app\nTerminated - when app gets terminated while Immortalizer is still enabled.";
+"ENABLE_TOAST_MESSAGE" = "Enable Toast Message";
+"DEVELOPER" = "Developer";
+"LOVE_MY_TWEAK" = "Love my tweak? I love coffee :D";
+"SOURCE_CODE" = "Source code :)";
+"FOLLOW_ME" = "Follow me on Twitter!";
+

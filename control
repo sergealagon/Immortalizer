@@ -1,6 +1,6 @@
 Package: com.sergy.immortalizer
 Name: Immortalizer
-Version: 2.0.0-1
+Version: 2.2
 Architecture: iphoneos-arm
 Description: Foreground your apps even if they are in the background!
 Maintainer: sergy

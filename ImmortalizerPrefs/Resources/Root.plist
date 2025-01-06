@@ -8,9 +8,9 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>Immortalizer Settings</string>
+			<string>IMMORTALIZER_SETTINGS</string>
 			<key>footerText</key>
-			<string>No respring needed :)</string>
+			<string>NO_RESPRING_NEEDED</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -32,15 +32,15 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>Notifications</string>
+			<string>NOTIFICATIONS</string>
 			<key>footerText</key>
-			<string>Some apps don't show notifications when it's in the foreground. This option will allow the notifications to show when Immortalizer is enabled on a particular app.</string>
+			<string>NOTIFICATIONS_FOOTER</string>
 		</dict>
 		<dict>	
 			<key>cell</key>
 			<string>PSLinkListCell</string>
 			<key>label</key>
-			<string>Enable Foreground Notification Per App</string>
+			<string>ENABLE_IMMORTAL_FOREGROUND_PER_APP</string>
 			<key>detail</key>
 			<string>ATLApplicationListMultiSelectionController</string>
 			<key>key</key>
@@ -72,9 +72,9 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>Indicators</string>
+			<string>INDICATORS</string>
 			<key>footerText</key>
-			<string>Immortalizer has 3 indicators:&#10;⌛ - when an app is both immortalized and is alive&#10;🟡 - when app is immortalized but got terminated.&#10;Enabling this overrides SpringBoard's label accessory.&#10;🔒 - This indicates that you locked the app, which prevents you from accidentally closing the app from the app switcher.</string>
+			<string>INDICATORS_FOOTER</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -86,7 +86,7 @@
 			<key>key</key>
 			<string>isIndicatorEnabled</string>
 			<key>label</key>
-			<string>Enable State Indicator</string>
+			<string>ENABLE_STATE_INDICATOR</string>
 			<key>PostNotification</key>
 			<string>com.sergy.immortalizer.preferenceschanged.indicator</string>
 		</dict>
@@ -100,7 +100,7 @@
 			<key>key</key>
 			<string>isLockIndicatorEnabled</string>
 			<key>label</key>
-			<string>Enable Lock Indicator</string>
+			<string>ENABLE_LOCK_INDICATOR</string>
 			<key>PostNotification</key>
 			<string>com.sergy.immortalizer.preferenceschanged.lockindicator</string>
 		</dict>
@@ -109,9 +109,9 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>Toast</string>
+			<string>TOAST</string>
 			<key>footerText</key>
-			<string>You can enable/disable toasts that shows the state of the app&#10;Immortalized - when app is immortalized&#10;At rest - when you disable Immortalizer on the app&#10;Terminated - when app gets terminated while Immortalizer is still enabled.</string>
+			<string>TOAST_FOOTER</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -123,7 +123,7 @@
 			<key>key</key>
 			<string>isToastEnabled</string>
 			<key>label</key>
-			<string>Enable Toast Message</string>
+			<string>ENABLE_TOAST_MESSAGE</string>
 			<key>PostNotification</key>
 			<string>com.sergy.immortalizer.preferenceschanged.toast</string>
 		</dict>
@@ -132,7 +132,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>Developer</string>
+			<string>DEVELOPER</string>
 		</dict>
 		<dict>
 			<key>action</key>
@@ -140,7 +140,7 @@
 			<key>cell</key>
 			<string>PSButtonCell</string>
 			<key>label</key>
-			<string>Love my tweak? I love coffee :D</string>
+			<string>LOVE_MY_TWEAK</string>
 			<key>icon</key>
 			<string>coffee.png</string>
 		</dict>
@@ -150,7 +150,7 @@
 			<key>cell</key>
 			<string>PSButtonCell</string>
 			<key>label</key>
-			<string>Source code :)</string>
+			<string>SOURCE_CODE</string>
 			<key>icon</key>
 			<string>github.png</string>
 		</dict>
@@ -160,7 +160,7 @@
 			<key>cell</key>
 			<string>PSButtonCell</string>
 			<key>label</key>
-			<string>Follow me on Twitter!</string>
+			<string>FOLLOW_ME</string>
 			<key>icon</key>
 			<string>twitter.png</string>
 		</dict>

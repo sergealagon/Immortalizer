@@ -19,12 +19,15 @@
 #import "IPBRootListController.h"
 #import <Preferences/PSSpecifier.h>
 #import <AltList/ATLApplicationListSubcontrollerController.h>
+#import "Localizer.h"
 
 @implementation IPBRootListController
 -(NSArray *)specifiers {
     if (!_specifiers) {
         _specifiers = [self loadSpecifiersFromPlistName:@"Root" target:self];
     }
+
+    [self localizeSpecifiers:_specifiers];
 
     return _specifiers;
 }
@@ -39,5 +42,26 @@
 
 -(void)socialPage {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://x.com/@srgndrlgn"] withCompletionHandler:nil];
+}
+
+- (void)localizeSpecifiers:(NSArray *)specifiers {
+    for (PSSpecifier *specifier in specifiers) {
+        NSString *labelKey = specifier.properties[@"label"];
+        NSString *footerTextKey = specifier.properties[@"footerText"];
+        NSArray *validTitles = specifier.properties[@"validTitles"];
+
+        if (labelKey) specifier.name = localizer(labelKey);
+        if (footerTextKey) [specifier setProperty:localizer(footerTextKey) forKey:@"footerText"];
+
+        if (validTitles) {
+            NSMutableDictionary *mutableTitleDictionary = [NSMutableDictionary dictionary];
+            for (NSUInteger i = 0; i < validTitles.count; i++) {
+                mutableTitleDictionary[@(i)] = localizer(validTitles[i]);  
+            }
+
+            specifier.titleDictionary = [mutableTitleDictionary copy];
+        }
+
+    }
 }
 @end

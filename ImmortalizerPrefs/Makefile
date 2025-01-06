@@ -4,7 +4,7 @@ include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = ImmortalizerPrefs
 
-ImmortalizerPrefs_FILES = IPBRootListController.m
+ImmortalizerPrefs_FILES = IPBRootListController.m ../Localizer.m
 ImmortalizerPrefs_FRAMEWORKS = UIKit
 ImmortalizerPrefs_PRIVATE_FRAMEWORKS = Preferences
 ImmortalizerPrefs_INSTALL_PATH = /Library/PreferenceBundles

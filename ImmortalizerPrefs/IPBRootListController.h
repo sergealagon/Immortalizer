@@ -18,6 +18,7 @@
 #import <Preferences/PSListController.h>
 
 @interface IPBRootListController : PSListController
+- (void)localizeSpecifiers:(NSArray *)specifiers;
 @end
 
 @interface UIApplication ()

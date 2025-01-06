@@ -21,6 +21,7 @@
 #import <objc/runtime.h>
 #import "Headers.h"
 #import "Immortalizer.h"
+#import "Localizer.h"
 
 static BOOL immortalizerEnabled;
 static BOOL isFolderTransitioning = false;
@@ -79,9 +80,9 @@ static BOOL isLockIndicatorEnabled;
         
         SBSApplicationShortcutItem* immortalItem = [[%c(SBSApplicationShortcutItem) alloc] init];
         if (isImmortal) {
-            immortalItem.localizedTitle = [NSString stringWithFormat:@"Disable Immortal Foreground"];
+            immortalItem.localizedTitle = localizer(@"DISABLE_IMMORTAL_FOREGROUND");
         } else {
-            immortalItem.localizedTitle = [NSString stringWithFormat:@"Enable Immortal Foreground"];
+            immortalItem.localizedTitle = localizer(@"ENABLE_IMMORTAL_FOREGROUND");
         }
         immortalItem.type = @"com.sergy.immortalizer.immortalForeground.item";
         UIImage *iconImage = [UIImage systemImageNamed:@"hourglass.bottomhalf.fill"];
@@ -103,7 +104,7 @@ static BOOL isLockIndicatorEnabled;
         if ([bundleID isEqualToString:@"com.apple.camera"] && ![immortalBundleIDs containsObject:bundleID]) {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{ 
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Immortalizer"
-                                                                                        message:@"You pervert! Kidding. But Immortalizer doesn't work for camera for recording. I don't know why, but if I got time, I'll try to investigate. I'll still let you Immortalize this app anyway."
+                                                                                        message:localizer(@"CREEP_ALERT")
                                                                                 preferredStyle:UIAlertControllerStyleAlert];
 
                 [alertController addAction:[UIAlertAction actionWithTitle:@"Lmao"
@@ -127,7 +128,7 @@ static BOOL isLockIndicatorEnabled;
         if ([immortalBundleIDs containsObject:bundleID]) {
 			SBApplication *app = [[%c(SBApplicationController) sharedInstance] applicationWithBundleIdentifier:bundleID];
 			if (app.processState != nil) [[%c(FBSSystemService) sharedService] openApplication:bundleID options:nil withResult:nil];
-            if (isToastEnabled) [immortalizer showToastWithTitle:[immortalizer getAppNameForBundle:bundleID] subtitle:@"At rest" icon:[UIImage systemImageNamed:@"arrow.uturn.left.circle.fill"] autoHide:3.0];
+            if (isToastEnabled) [immortalizer showToastWithTitle:[immortalizer getAppNameForBundle:bundleID] subtitle:localizer(@"AT_REST") icon:[UIImage systemImageNamed:@"arrow.uturn.left.circle.fill"] autoHide:3.0];
             [immortalBundleIDs removeObject:bundleID];
 			
         } else { 
@@ -193,7 +194,7 @@ static BOOL isLockIndicatorEnabled;
         NSArray *immortalBundleIDs = [[NSUserDefaults standardUserDefaults] arrayForKey:@"ImmortalForegroundBundleIDs"];
         BOOL isImmortalized = [immortalBundleIDs containsObject:self.bundleIdentifier];
         if (isImmortalized && isToastEnabled) {
-            [immortalizer showToastWithTitle:[immortalizer getAppNameForBundle:self.bundleIdentifier] subtitle:@"Terminated" icon:[UIImage systemImageNamed:@"exclamationmark.triangle.fill"] autoHide:3.0];
+            [immortalizer showToastWithTitle:[immortalizer getAppNameForBundle:self.bundleIdentifier] subtitle:localizer(@"TERMINATED") icon:[UIImage systemImageNamed:@"exclamationmark.triangle.fill"] autoHide:3.0];
         }
     }
 }
@@ -293,15 +294,15 @@ static void immortalizerPreferencesChanged() {
 }
 
 static void prefsNotifsChanged() {
-        Immortalizer *immortalizer = [Immortalizer sharedInstance];
-        NSArray *immortalBundleIDs = [[NSUserDefaults standardUserDefaults] arrayForKey:@"ImmortalForegroundBundleIDs"];
-        for (NSString * immortalApp in immortalBundleIDs) {
-            if ([immortalizer isNotificationEnabledForBundleIdentifier:immortalApp]) {
-                [[%c(UNSUserNotificationServer) sharedInstance] _didChangeApplicationState:4 forBundleIdentifier:immortalApp];
-            } else {
-                [[%c(UNSUserNotificationServer) sharedInstance] _didChangeApplicationState:8 forBundleIdentifier:immortalApp];
-            }
+    Immortalizer *immortalizer = [Immortalizer sharedInstance];
+    NSArray *immortalBundleIDs = [[NSUserDefaults standardUserDefaults] arrayForKey:@"ImmortalForegroundBundleIDs"];
+    for (NSString * immortalApp in immortalBundleIDs) {
+        if ([immortalizer isNotificationEnabledForBundleIdentifier:immortalApp]) {
+            [[%c(UNSUserNotificationServer) sharedInstance] _didChangeApplicationState:4 forBundleIdentifier:immortalApp];
+        } else {
+            [[%c(UNSUserNotificationServer) sharedInstance] _didChangeApplicationState:8 forBundleIdentifier:immortalApp];
         }
+    }
 }
 
 static void prefsIndicatorChanged() {
