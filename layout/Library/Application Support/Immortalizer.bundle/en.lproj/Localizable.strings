@@ -4,6 +4,7 @@
 "AT_REST" = "At rest";
 "TERMINATED" = "Terminated";
 "IMMORTALIZER_SETTINGS" = "Immortalizer Settings";
+"Enable"="Enable";
 "NO_RESPRING_NEEDED" = "No respring needed :)";
 "NOTIFICATIONS" = "Notifications";
 "NOTIFICATIONS_FOOTER" = "Some apps don't show notifications when it's in the foreground. This option will allow the notifications to show when Immortalizer is enabled on a particular app.";
@@ -19,4 +20,3 @@
 "LOVE_MY_TWEAK" = "Love my tweak? I love coffee :D";
 "SOURCE_CODE" = "Source code :)";
 "FOLLOW_ME" = "Follow me on Twitter!";
-
