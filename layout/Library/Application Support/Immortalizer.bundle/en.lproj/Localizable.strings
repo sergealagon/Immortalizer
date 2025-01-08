@@ -4,6 +4,7 @@
 "AT_REST" = "At rest";
 "TERMINATED" = "Terminated";
 "IMMORTALIZER_SETTINGS" = "Immortalizer Settings";
+"Enable"="Enable";
 "NO_RESPRING_NEEDED" = "No respring needed :)";
 "NOTIFICATIONS" = "Notifications";
 "NOTIFICATIONS_FOOTER" = "Some apps don't show notifications when it's in the foreground. This option will allow the notifications to show when Immortalizer is enabled on a particular app.";
@@ -20,3 +21,34 @@
 "SOURCE_CODE" = "Source code :)";
 "FOLLOW_ME" = "Follow me on Twitter!";
 
+"LMAO" = "Lmao";
+"IMMORTALIZED" = "Immortalized";
+
+"IMMORTALIZER_CC_TOGGLE_FOOTER" = "Open an app first. You can't immortalize the SpringBoard, silly ;)\n\nYou can also long press the toggle.";
+"OOOPS" = "Ooops!";
+"IMMORTALIZER_CC_ON_FOOTER" = "The tweak is currently disabled. Enable to use it.";
+"OKAY" = "Okay!";
+"FOR_APPS" = "For %@";
+
+"UNLOCK" = "Unlock %@";
+"LOCK" = "Lock %@";
+"SWITCHER_CLOSE_FOOTER" = "This will let you close it from app switcher";
+"SWITCHER_LOCK_FOOTER" = "This will lock the app on app switcher";
+"RELEASED" = "Released";
+"JAILEDE" = "Jailed";
+
+"DISABLE_NOTIFICATION" = "Disable Foreground Notification For %@";
+"ENABLE_NOTIFICATION" = "Enable Foreground Notification For %@";
+"DISABLE_NOTIFICATION_FOOTER" = "This will disable foreground notifications";
+"ENABLE_NOTIFICATION_FOOTER" = "This will enable foreground notifications";
+
+"DISABLE" = "Disable";
+"ENABLE" = "Enable";
+"NO_APP_OPEN" = "No app is currently opened";
+"OPEN_APP_IMMORTALIZE" = "Open an app to Immortalize";
+"DISABLE_TWEAK" = "Disable Tweak";
+"ENABLE_TWEAK" = "Enable Tweak";
+"DISABLE_FOOTER" = "This option will disable the tweak itself";
+"ENABLE_FOOTER" = "This option will enable the tweak itself";
+
+"IMMORTALIZER_SETTINGS_FOOTER" = "Open Immortalizer Preferences";

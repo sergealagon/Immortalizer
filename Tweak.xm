@@ -107,7 +107,7 @@ static BOOL isLockIndicatorEnabled;
                                                                                         message:localizer(@"CREEP_ALERT")
                                                                                 preferredStyle:UIAlertControllerStyleAlert];
 
-                [alertController addAction:[UIAlertAction actionWithTitle:@"Lmao"
+                [alertController addAction:[UIAlertAction actionWithTitle:localizer(@"LMAO")
                                                                     style:UIAlertActionStyleDefault
                                                                 handler:^(UIAlertAction * _Nonnull action) {
                 }]];
@@ -132,7 +132,7 @@ static BOOL isLockIndicatorEnabled;
             [immortalBundleIDs removeObject:bundleID];
 			
         } else { 
-            if (isToastEnabled) [immortalizer showToastWithTitle:[immortalizer getAppNameForBundle:bundleID] subtitle:@"Immortalized" icon:[UIImage systemImageNamed:@"hourglass.bottomhalf.fill"] autoHide:3.0];
+            if (isToastEnabled) [immortalizer showToastWithTitle:[immortalizer getAppNameForBundle:bundleID] subtitle:localizer(@"IMMORTALIZED") icon:[UIImage systemImageNamed:@"hourglass.bottomhalf.fill"] autoHide:3.0];
 			[[%c(FBSSystemService) sharedService] openApplication:bundleID options:nil withResult:nil];
             [immortalBundleIDs addObject:bundleID];
         }

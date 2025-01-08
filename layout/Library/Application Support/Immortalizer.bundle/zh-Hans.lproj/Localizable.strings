@@ -1,0 +1,54 @@
+"ENABLE_IMMORTAL_FOREGROUND" = "启用「真后台」";
+"DISABLE_IMMORTAL_FOREGROUND" = "禁用「真后台」";
+"CREEP_ALERT" = "Immortalizer 不适用于相机录制；有空的话，会尝试解决；无论如何，仍会让这个应用「真后台」。";
+"AT_REST" = "已取消";
+"TERMINATED" = "已终止";
+"IMMORTALIZER_SETTINGS" = "Immortalizer 设置";
+"Enable"="功能启用";
+"NO_RESPRING_NEEDED" = "无需注销设备";
+"NOTIFICATIONS" = "通知";
+"NOTIFICATIONS_FOOTER" = "某些应用在前台运行时不会显示通知\n允许在选定应用上启用“真后台”时显示通知";
+"ENABLE_IMMORTAL_FOREGROUND_PER_APP" = "选定应用启用前台通知";
+"INDICATORS" = "指示器";
+"INDICATORS_FOOTER" = "Immortalizer 有三种状态指示：\n⌛ - 当应用处于“真后台”且活跃时\n🟡 - 当应用处于“真后台”但被终止时\n🔒 - 表明已锁定该应用，可防止意外从应用后台切换器中关闭该应用\n\n启用此功能将覆盖 SpringBoard 的标签";
+"ENABLE_STATE_INDICATOR" = "启用状态指示";
+"ENABLE_LOCK_INDICATOR" = "启用锁定指示";
+"TOAST" = "提示";
+"TOAST_FOOTER" = "可以启用/禁用显示应用程序状态的提示窗\n真后台：应用开启“真后台”\n已取消：应用禁用“真后台”\n已终止：应用处于“真后台”但被终止";
+"ENABLE_TOAST_MESSAGE" = "启用弹窗消息";
+"DEVELOPER" = "开发者";
+"LOVE_MY_TWEAK" = "喜欢我的插件吗？我喜欢咖啡";
+"SOURCE_CODE" = "代码开源";
+"FOLLOW_ME" = "关注推特";
+
+"LMAO" = "哈哈";
+"IMMORTALIZED" = "真后台";
+
+"IMMORTALIZER_CC_TOGGLE_FOOTER" = "请先打开一个应用，无法让 SpringBoard「真后台」，小傻瓜；\n\n你也可以长按模块切换按钮。";
+"OOOPS" = "哎呀！";
+"IMMORTALIZER_CC_ON_FOOTER" = "此插件目前已禁用；需要「开关」下插件总开关。";
+"OKAY" = "好的！";
+"FOR_APPS" = "为 %@";
+
+"UNLOCK" = "解锁 %@";
+"LOCK" = "锁定 %@";
+"SWITCHER_CLOSE_FOOTER" = "让应用在后台切换器中随意关闭";
+"SWITCHER_LOCK_FOOTER" = "让应用在后台切换器中无法关闭";
+"RELEASED" = "解锁";
+"JAILEDE" = "锁定";
+
+"DISABLE_NOTIFICATION" = "为 %@ 禁用前台通知";
+"ENABLE_NOTIFICATION" = "为 %@ 启用前台通知";
+"DISABLE_NOTIFICATION_FOOTER" = "这将禁用前台通知";
+"ENABLE_NOTIFICATION_FOOTER" = "这将启用前台通知";
+
+"DISABLE" = "禁用";
+"ENABLE" = "启用";
+"NO_APP_OPEN" = "当前没有打开任何应用";
+"OPEN_APP_IMMORTALIZE" = "打开应用程序以进行「真后台」";
+"DISABLE_TWEAK" = "禁用插件";
+"ENABLE_TWEAK" = "启用插件";
+"DISABLE_FOOTER" = "此选项将禁用插件所有功能";
+"ENABLE_FOOTER" = "此选项将启用插件所有功能";
+
+"IMMORTALIZER_SETTINGS_FOOTER" = "打开 Immortalizer 设置";
