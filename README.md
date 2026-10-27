@@ -1,4 +1,4 @@
-# Immortalizer
+# Immortalizer [to update]
 
  Keep your apps running in the foreground indefinitely, even if they are in the background!
  
